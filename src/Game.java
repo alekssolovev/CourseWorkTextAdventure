@@ -9,10 +9,16 @@ public class Game {
     private void setupMenu() {
         Command startCommand = new StartGameCommand(this);
         Command loadCommand = new LoadGameCommand(this);
+        Command exitCommand = new ExitGameCommand(this);
+        Command resumeCommand = new ResumeGameCommand(this);
+        Command saveCommand = new SaveGameCommand(this);
         // Добавьте другие команды для меню игры
 
         menuInvoker.setCommand("start", startCommand);
         menuInvoker.setCommand("load", loadCommand);
+        menuInvoker.setCommand("exit",exitCommand);
+        menuInvoker.setCommand("resume",resumeCommand);
+        menuInvoker.setCommand("save",saveCommand);
         // Установите другие команды для меню игры
     }
 
