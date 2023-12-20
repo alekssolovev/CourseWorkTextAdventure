@@ -46,6 +46,13 @@ public enum Chapters {
     private boolean isVictory;
     private boolean isGameOver;
 
+    public String getAnswer1() {
+        return answer1;
+    }
+
+    public String getAnswer2() {
+        return answer2;
+    }
 
     public boolean isVictory() {
         return isVictory;
@@ -62,6 +69,7 @@ public enum Chapters {
     public String getChapterText() {
         return chapterText;
     }
+
 
     Chapters(String chapterTitle, String chapterText,String answer1, String answer2) {
         this.answer1 = answer1;

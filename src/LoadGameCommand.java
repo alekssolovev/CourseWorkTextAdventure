@@ -1,17 +1,15 @@
 public class LoadGameCommand implements Command {
     private final Game game;
 
+    private String fileName;
+
     public LoadGameCommand(Game game) {
         this.game = game;
     }
 
     @Override
     public void execute() {
-        game.load();
+        game.load("Save1");
     }
 
-    @Override
-    public void undo() {
-        game.unload();
-    }
 }

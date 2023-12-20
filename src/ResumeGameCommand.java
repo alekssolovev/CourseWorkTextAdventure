@@ -7,11 +7,9 @@ public class ResumeGameCommand implements Command{
 
     @Override
     public void execute() {
-        game.save();
-    }
-
-    @Override
-    public void undo() {
-        game.returnToMenu();
+        game.returnToGame();
+        //game.save();
+        // возврат к квесту,состояние в переменной
+        //переменная для сохранения состояние объекта
     }
 }

@@ -10,8 +10,4 @@ public class ExitGameCommand implements Command{
         game.stop();
     }
 
-    @Override
-    public void undo() {
-
-    }
 }
