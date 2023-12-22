@@ -16,38 +16,31 @@ public class App {
         File fileName = new File("save");
         NextChapter nextChapter = new NextChapter(map1,map2);
         Scanner scanner = new Scanner(System.in);
-        System.out.println(gameState.getChapter().toString());
 
         game.executeMenuCommand("start");
-        System.out.println(gameState.getChapter());
         while (true){
             int choice = scanner.nextInt();
-        if(choice ==1 || choice ==2)
-        {
-            chapters =nextChapter.switchAnswer(gameState.getChapter().getAnswer1(),gameState.getChapter().getAnswer2(),choice);
-            gameState = new GameState(chapters);
-            game = new Game(gameState);
-            System.out.println(gameState.getChapter());
-            if(chapters.getAnswer1()==null)
-                {game.endOfGame(gameState);}
+            if(choice ==1 || choice ==2)
+            {
+                //определяем следующую главу
+                chapters =nextChapter.switchAnswer(gameState.getChapter().getAnswer1(),gameState.getChapter().getAnswer2(),choice);
+                //обновляем прогресс игры через Gamestate
+                gameState = new GameState(chapters);
+                game.returnToGame(gameState);
+                if(chapters.getAnswer1()==null)
+                    game.endOfGame(gameState);
         }
-        if(choice==3){
-            gameState = new GameState(Chapters.ELEVENTH);
-            game = new Game(gameState);
-            System.out.println(gameState.getChapter());
-            menu.displayMenu();
-            System.out.println(gameState.getChapter());
-            menu.selectMenu(gameState,fileName);}
-
-        }
-
-        //Добавить переход в программе между главами.
-
-
-
-
-
+            if(choice==3){
+                menu.displayMenu();
+                if(gameState!=null)
+                    menu.selectMenu(gameState,fileName);
+                //определяем следующую главу
+                nextChapter.switchAnswer(gameState.getChapter().getAnswer1(),gameState.getChapter().getAnswer2(),choice);}
+            else
+                System.out.println("Неверный ввод");
 
         }
-    }
+
+        }
+}
 

@@ -2,7 +2,7 @@ import java.io.File;
 
 public class SaveGameCommand implements Command{
     private final Game game;
-    GameState gameState;
+    private GameState gameState;
 
     File fileName;
 

@@ -1,13 +1,12 @@
 import java.io.Serializable;
 
-public class GameState implements Serializable {
-    Game game;
+public class GameState implements Serializable { //класс для сохранения состояния игры
     private Chapters chapters;
 
 
     public GameState( Chapters chapters) {
-       // this.game = game;
-        this.chapters = chapters;
+        if(chapters!=null)
+            this.chapters = chapters;
     }
 
     public Chapters getChapter() {
@@ -16,7 +15,7 @@ public class GameState implements Serializable {
 
 
     public void setChapter(Chapters chapters) {
-        this.chapters = chapters;
+       this.chapters = chapters;
     }
 
 

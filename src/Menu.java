@@ -5,14 +5,13 @@ import java.util.Scanner;
 
 
 public class Menu {
-    Game game;
+    private Game game;
 
-    GameState gameState;
-
-    String filePath ="C:\\Users\\Администратор\\IdeaProjects\\CourseWorkTextAdventure\\save";
+    private GameState gameState;
 
     public Menu(Game game) {
-        this.game = game;
+        if(game!=null)
+            this.game = game;
     }
 
     public void displayMenu() {
@@ -33,17 +32,14 @@ public class Menu {
         if (choice == 1)
             game.executeMenuCommand("start");
         else if (choice == 2)
-            //game.executeMenuCommand("resume");
             game.returnToGame(gameState);
         else if (choice == 3) {
             game.executeMenuCommand("exit");
         } else if (choice == 4) {
-            //game.executeMenuCommand("save");
             game.save(gameState, filePath);
             displayMenu();
         } else if (choice == 5) {
-            //game.executeMenuCommand("load");
-            game.load(filePath);
+            gameState = game.load(filePath);
             game.returnToGame(gameState);
         } else
             System.out.println("Неверный выбор");
@@ -51,18 +47,7 @@ public class Menu {
 
     }
 
-    public String displayShortMenu(GameState gameState){
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        System.out.println(gameState.getChapter().getAnswer1()+"\n"+ gameState.getChapter().getAnswer2() + "\n" +
-                "3. Выйти в меню");
-        String answer1 = gameState.getChapter().getAnswer1();
-        String answer2 = gameState.getChapter().getAnswer2();
-        return answer1;
 
-    }
-
-    //Дописать класс shortMenu с отображением 2 пунктов меню и выйти из игры
 
  }
 

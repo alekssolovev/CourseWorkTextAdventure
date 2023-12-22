@@ -2,7 +2,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class NextChapter {
+public class NextChapter { //Класс для хранения соответствий
+    //между ответами и главами.
 
     Map<String, Chapters> map1 = new HashMap<>();
     Map<String,Chapters> map2 = new HashMap<>();
@@ -54,16 +55,15 @@ public class NextChapter {
     }
 
     public Chapters switchAnswer(String answer1,String answer2,int userInput){
-        Chapters chapters;
+        //выбор нужной главы
         if (userInput == 1) {
             return nextChapterAfterAnswer1(answer1);
         } else if (userInput == 2){
             return   nextChapterAfterAnswer2(answer2);}
 
-        //else throw new RuntimeException("Неверный ввод");
         else return Chapters.FIRST;
 
-        }
+    }
 
     }
 
