@@ -1,7 +1,10 @@
+import java.io.File;
+
 public class LoadGameCommand implements Command {
     private final Game game;
 
-    private String fileName;
+    private String fileName ="save1";
+
 
     public LoadGameCommand(Game game) {
         this.game = game;
@@ -9,7 +12,7 @@ public class LoadGameCommand implements Command {
 
     @Override
     public void execute() {
-        game.load("Save1");
+        game.load(new File(fileName));
     }
 
 }

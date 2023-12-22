@@ -1,6 +1,7 @@
 public class ExitGameCommand implements Command{
     private final Game game;
 
+
     public ExitGameCommand(Game game) {
         this.game = game;
     }

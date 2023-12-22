@@ -1,7 +1,10 @@
+import java.io.File;
+
 public class SaveGameCommand implements Command{
     private final Game game;
+    GameState gameState;
 
-    String fileName;
+    File fileName;
 
     public SaveGameCommand(Game game) {
         this.game = game;
@@ -9,7 +12,7 @@ public class SaveGameCommand implements Command{
 
     @Override
     public void execute() {
-        game.save("Save1");
+        game.save(gameState,fileName);
     }
 
 

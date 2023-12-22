@@ -1,24 +1,23 @@
 import java.io.Serializable;
 
 public class GameState implements Serializable {
-    public Chapters chapter ;
     Game game;
+    private Chapters chapters;
 
-    public GameState(Chapters chapter) {
-        if(chapter!=null)
-            this.chapter = chapter;
+
+    public GameState( Chapters chapters) {
+       // this.game = game;
+        this.chapters = chapters;
     }
 
     public Chapters getChapter() {
-        return chapter;
+        return chapters;
     }
 
-    public void endOfGame(GameState gameState){
-        if(gameState.getChapter().isGameOver())
-            System.out.println("Вы прогирали!");
-            game.stop();
-        if(gameState.getChapter().isVictory())
-            System.out.println("Вы выиграли!");
-            game.stop();
+
+    public void setChapter(Chapters chapters) {
+        this.chapters = chapters;
     }
+
+
 }

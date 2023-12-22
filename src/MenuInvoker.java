@@ -20,10 +20,6 @@ public class MenuInvoker {
         }
     }
 
-    public void undoCommand(String commandName) {
-        Command command = commands.get(commandName);
-        if (command != null) {
-            command.undo();
-        }
-    }
+
+
 }
